@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/modelos/players/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/maps/map4.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/modelos/coins/coinsnormal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/modelos/information/Hud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/fases/fase - 4/blockTransFerir/nextLevell.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/modelos/mobs/serra.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/modelos/mobs/cogumelo do mal esquerdo.tscn" type="PackedScene" id=7]
+
+[node name="fase - 4" type="Node2D"]
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="map1" parent="Cenario" instance=ExtResource( 2 )]
+position = Vector2( 0, -8 )
+
+[node name="Nextlevel" type="Node2D" parent="."]
+
+[node name="killBlock" parent="Nextlevel" instance=ExtResource( 5 )]
+position = Vector2( 960, 320 )
+
+[node name="Information" type="Node2D" parent="."]
+
+[node name="Control" parent="Information" instance=ExtResource( 4 )]
+
+[node name="Coin" type="Node2D" parent="."]
+
+[node name="coins" parent="Coin" instance=ExtResource( 3 )]
+position = Vector2( 416, 472 )
+
+[node name="coins2" parent="Coin" instance=ExtResource( 3 )]
+position = Vector2( 608, 408 )
+
+[node name="coins3" parent="Coin" instance=ExtResource( 3 )]
+position = Vector2( 800, 344 )
+
+[node name="PlayerContainer" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerContainer" instance=ExtResource( 1 )]
+position = Vector2( 64, 544 )
+
+[node name="mobs" type="Node2D" parent="."]
+
+[node name="serra" parent="mobs" instance=ExtResource( 7 )]
+position = Vector2( 128, 552 )
+
+[node name="serra2" parent="mobs" instance=ExtResource( 6 )]
+position = Vector2( 896, 504 )
+rotation = -1.56556
+
+[node name="serra3" parent="mobs" instance=ExtResource( 6 )]
+position = Vector2( 704, 536 )
+rotation = -1.56556
+
+[node name="serra4" parent="mobs" instance=ExtResource( 6 )]
+position = Vector2( 512, 560 )
+rotation = -1.56556

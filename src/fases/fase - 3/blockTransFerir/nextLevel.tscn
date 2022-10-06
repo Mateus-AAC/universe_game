@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/scripts/NextLevel.gd" type="Script" id=1]
+[ext_resource path="res://src/sprites/miscellaneous sprites/arrow_plate_right.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 26 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="killBlock" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 1 )
+world_scene = "res://src/fases/fase - 4/fase - 4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 48, -52 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+position = Vector2( 48, -24 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 3 )
+animation = "idle"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

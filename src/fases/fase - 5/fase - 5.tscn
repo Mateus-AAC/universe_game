@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/maps/map5.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/modelos/players/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/fases/fase - 5/blockTransFerir/nextLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/modelos/information/Hud.tscn" type="PackedScene" id=4]
+
+[node name="fase - 5" type="Node2D"]
+
+[node name="Cenario" type="Node2D" parent="."]
+
+[node name="map1" parent="Cenario" instance=ExtResource( 1 )]
+position = Vector2( 0, -8 )
+
+[node name="Information" type="Node2D" parent="."]
+
+[node name="Control" parent="Information" instance=ExtResource( 4 )]
+
+[node name="PlayerContainer" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerContainer" instance=ExtResource( 2 )]
+position = Vector2( 64, 544 )
+
+[node name="killBlock" parent="." instance=ExtResource( 3 )]
+position = Vector2( 552, 568 )
+
+[node name="nextevel" type="Node2D" parent="."]
+
+[node name="Nextlevel" type="Node2D" parent="nextevel"]
